@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check current weather and air quality around the world.">
+  <title>WeatherWorld - Easy access to world's weather conditions</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="" id="brand-logo">
+        <span>Weather<span class="brand-highlight">World</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="main-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="main-navigation" class="main-navigation" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="container" id="main-content" tabindex="-1">
+    <section class="banner">
+      <p class="eyebrow">WEATHER DASHBOARD</p>
+      <h1>Weather around the world</h1>
+      <p>Search for a city to see its current weather and air quality</p>
+    </section>
+
+    <section class="search-panel" aria-labelledby="search-heading">
+      <h2 id="search-heading">Find a city</h2>
+      <form id="weather-form">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="city-input">City or place</label>
+            <input type="search" id="city-input" name="city" placeholder="e.g. Kolkata, London, Tokyo" minlength="2"
+              maxlength="80" required>
+          </div>
+          <div class="form-field">
+            <label for="unit-select">Temperature unit</label>
+            <select id="unit-select" name="units">
+              <option value="celsius">Celsius (°C)</option>
+              <option value="fahrenheit">Fahrenheit (°F)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="search-button">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          Search Weather
+        </button>
+      </form>
+      <p id="status-message" role="status" aria-live="polite"></p>
+      <div class="location-choice" id="location-choice" hidden>
+        <label for="location-select">Select the correct location</label>
+        <select id="location-select" name="location" aria-describedby="location-hint"></select>
+        <p id="location-hint" class="helper-text">Several places match your search. Choose the right one to update the results.</p>
+      </div>
+    </section>
+
+    <section id="weather-results" class="results-section" hidden aria-labelledby="results-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CURRENT CONDITIONS</p>
+          <h2 id="results-heading">Weather in <span id="location-name"></span></h2>
+          <p id="location-details" class="muted-text"></p>
+        </div>
+        <p id="updated-time" class="updated-time"></p>
+      </div>
+
+      <article id="current-card" class="current-card cloudy">
+        <div class="current-main">
+          <div>
+            <p class="card-label">RIGHT NOW</p>
+            <p id="current-description" class="current-description">Weather</p>
+            <p id="current-heading" class="current-temperature">--°</p>
+            <p class="feels-like">Feels like <span id="feels-like">--°</span></p>
+          </div>
+          <i id="current-icon" class="fa-solid fa-cloud weather-symbol" aria-hidden="true"></i>
+        </div>
+
+        <div class="current-stats">
+          <div class="stat">
+            <span class="stat-label">Humidity</span>
+            <strong id="stat-humidity">--%</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Wind speed</span>
+            <strong id="stat-wind">-- km/h</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Precipitation</span>
+            <strong id="stat-rain">-- mm</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Today's maximum UV index</span>
+            <strong id="stat-uv">--</strong>
+          </div>
+        </div>
+      </article>
+
+      <div class="extra-panels">
+        <section class="air-quality-panel" aria-labelledby="air-heading">
+          <div class="air-heading">
+            <i class="fa-solid fa-wind" aria-hidden="true"></i>
+            <h2 id="air-heading">Air quality</h2>
+          </div>
+          <p id="air-quality">Air quality information will appear here.</p>
+        </section>
+
+        <section class="sun-times-panel" aria-labelledby="sun-times-heading">
+          <div class="air-heading">
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            <h2 id="sun-times-heading">Sunrise and sunset</h2>
+          </div>
+          <div class="sun-times-grid">
+            <div class="sun-time">
+              <span><i class="fa-solid fa-sunrise" aria-hidden="true"></i> Sunrise</span>
+              <strong id="sunrise-time">--:--</strong>
+            </div>
+            <div class="sun-time">
+              <span><i class="fa-solid fa-sunset" aria-hidden="true"></i> Sunset</span>
+              <strong id="sunset-time">--:--</strong>
+            </div>
+          </div>
+          <p id="sun-status" class="sun-status" role="status" aria-live="polite">Times will appear after a search.</p>
+          <p class="sun-credit">Sun data by <a href="https://sunrise-sunset.org/" target="_blank" rel="noopener noreferrer">Sunrise-Sunset.org</a>.</p>
+        </section>
+      </div>
+    </section>
+
+    <p class="data-note">
+      Weather and air quality data provided by
+      <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>.
+    </p>
+
+
+    <section class="weather-info">
+      <div class="info-heading">
+        <p class="eyebrow">EXPLORE WEATHERWORLD</p>
+        <h2>Everything you need to know about today's weather</h2>
+        <p>Stay informed about weather conditions before you step outside</p>
+      </div>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <i class="fa-solid fa-cloud-sun" aria-hidden="true"></i>
+          <h3>Current Weather</h3>
+          <p>Check the temperature, humidity, wind speed and current weather conditions for any city</p>
+        </article>
+
+        <article class="info-card">
+          <i class="fa-solid fa-wind" aria-hidden="true"></i>
+          <h3>Air Quality</h3>
+          <p>Explore air quality readings to better understand the air around your chosen location</p>
+        </article>
+
+        <article class="info-card">
+          <i class="fa-solid fa-earth-asia" aria-hidden="true"></i>
+          <h3>Sunrise and Sunset</h3>
+          <p>See today's local sunrise and sunset times for your selected city</p>
+        </article>
+      </div>
+
+      <div class="weather-tip">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        <div>
+          <h3>Make informed plans</h3>
+          <p>Check local weather conditions before travelling or spending time outdoors</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span class="current-year"></span> Weather World</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+
+</html>

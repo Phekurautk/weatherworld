@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about WeatherWorld and its weather information services.">
+    <title>About - WeatherWorld</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="index.html">
+                <img src="assets/logo.png" alt="" id="brand-logo">
+                <span>Weather<span class="brand-highlight">World</span></span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="main-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="main-navigation" class="main-navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html" aria-current="page">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container inner-page" id="main-content" tabindex="-1">
+        <section class="banner">
+            <p class="eyebrow">ABOUT US</p>
+            <h1>Weather information made simple</h1>
+            <p>WeatherWorld helps you explore current weather, air quality and sunrise and sunset times in cities around the world.</p>
+        </section>
+
+        <section class="page-panel">
+            <img src="assets/logo.png" alt="" id="about-logo">
+            <h2>What is WeatherWorld?</h2>
+            <p>WeatherWorld is a simple weather web application that lets you search for a place and view its current
+                weather conditions. It presents useful information in one place so you can understand local conditions
+                at a glance.</p>
+        </section>
+
+        <section class="about-grid">
+            <article class="page-panel">
+                <i class="fa-solid fa-temperature-half page-card-icon" aria-hidden="true"></i>
+                <h2>Current weather</h2>
+                <p>View temperature, feels-like temperature, humidity, wind speed, precipitation and today's maximum UV index.</p>
+            </article>
+
+            <article class="page-panel">
+                <i class="fa-solid fa-wind page-card-icon" aria-hidden="true"></i>
+                <h2>Air quality</h2>
+                <p>Check available air quality index readings for the location you search for.</p>
+            </article>
+
+            <article class="page-panel">
+                <i class="fa-solid fa-earth-asia page-card-icon" aria-hidden="true"></i>
+                <h2>Worldwide search</h2>
+                <p>Search for places by name and choose Celsius or Fahrenheit for temperature readings.</p>
+            </article>
+        </section>
+
+        <section class="page-panel">
+            <h2>Our weather data</h2>
+            <p>WeatherWorld uses Open-Meteo services for location, weather and air quality readings,
+                plus Sunrise-Sunset.org for local sunrise and sunset times. Availability can vary by location.</p>
+            <a class="text-link" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Learn about
+                Open-Meteo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            <p>Sunrise and sunset data: <a href="https://sunrise-sunset.org/" target="_blank" rel="noopener noreferrer">Sunrise-Sunset.org</a>.</p>
+        </section>
+
+        <div class="page-action">
+            <h2>Ready to check the weather?</h2>
+            <p>Search for a city and explore its current conditions.</p>
+            <a class="primary-link" href="index.html">Check the weather</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span class="current-year"></span> WeatherWorld</p>
+        </div>
+    </footer>
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>

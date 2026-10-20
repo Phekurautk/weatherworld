@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Try the WeatherWorld demo feedback form with client-side validation.">
+    <title>Contact - WeatherWorld</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="index.html">
+                <img src="assets/logo.png" alt="" id="brand-logo">
+                <span>Weather<span class="brand-highlight">World</span></span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="main-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="main-navigation" class="main-navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" aria-current="page">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container inner-page" id="main-content" tabindex="-1">
+        <section class="banner">
+            <p class="eyebrow">GET IN TOUCH</p>
+            <h1>Contact WeatherWorld</h1>
+            <p>Try our sample feedback form and see how input validation works.</p>
+        </section>
+
+        <div class="contact-layout">
+            <section class="page-panel contact-details">
+                <i class="fa-solid fa-envelope page-card-icon" aria-hidden="true"></i>
+                <h2>Demo feedback form</h2>
+                <p>This form demonstrates validation. It checks your entries locally but does not send or store a message.</p>
+
+                <div class="contact-detail">
+                    <i class="fa-solid fa-cloud-sun" aria-hidden="true"></i>
+                    <div>
+                        <h3>WeatherWorld</h3>
+                        <p>Your simple weather dashboard</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    <div>
+                        <h3>Weather data</h3>
+                        <p>Weather information is provided by Open-Meteo.</p>
+                        <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo
+                            website</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page-panel contact-form-panel">
+                <h2>Check your message</h2>
+                <p class="form-disclosure">This is a demonstration only. No message is sent, stored or received.</p>
+
+                <form id="contact-form">
+                    <div class="form-field">
+                        <label for="contact-name">Your name*</label>
+                        <input type="text" id="contact-name" name="name" minlength="2" maxlength="80"
+                            autocomplete="name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contact-email">Email address*</label>
+                        <input type="email" id="contact-email" name="email" maxlength="120" autocomplete="email"
+                            required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contact-subject">Subject*</label>
+                        <select id="contact-subject" name="subject" required>
+                            <option value="">Choose a subject</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="problem">Report a problem</option>
+                            <option value="question">General question</option>
+                            <option value="suggestion">Suggestion</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contact-message">Message*</label>
+                        <textarea id="contact-message" name="message" rows="5" minlength="10" maxlength="1000"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" id="contact-submit">
+                        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                        Check my message
+                    </button>
+
+                    <p id="contact-status" role="status" aria-live="polite" hidden></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span class="current-year"></span> WeatherWorld</p>
+        </div>
+    </footer>
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>
